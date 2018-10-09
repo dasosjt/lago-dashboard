@@ -5,6 +5,9 @@ import dash_html_components as html
 import plotly.plotly as py
 import plotly.graph_objs as go
 import numpy as np
+from pyhive import hive
+from TCLIService.ttypes import TOperationState
+cursor = hive.connect('localhost').cursor()
 
 N = 1000
 random_x = np.random.randn(N)
@@ -187,4 +190,4 @@ vem_layout = [
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=True, host='0.0.0.0')
