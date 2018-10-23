@@ -11,8 +11,9 @@ amplitude_risetime = pd.read_csv(
 )
 data_amplitude_risetime = [
     go.Scatter(
-        x=amplitude_risetime['amplitude'],
-        y=amplitude_risetime['rise_time']
+        y=amplitude_risetime['amplitude'],
+        x=amplitude_risetime['rise_time'],
+        mode='markers'
     )
 ]
 
@@ -25,9 +26,9 @@ gmmem_layout = [
                 figure={
                     'data': data_amplitude_risetime,
                     'layout': go.Layout(
-                        title='Rise Time vs Pulse Amplitude',
-                        xaxis={'title': 'Pulse Amplitude'},
-                        yaxis={'title': 'Rise Time'},
+                        title='Pulse Amplitude vs Rise Time',
+                        yaxis={'title': 'Pulse Amplitude'},
+                        xaxis={'title': 'Rise Time'},
                         margin={'l': 40, 'b': 40,
                             't': 40, 'r': 40},
                         legend={'x': 0, 'y': 1},
