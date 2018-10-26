@@ -59,7 +59,7 @@ data_df_log_adcq_count = [
     )
 ]
 
-vem_layout = [
+sme_layout = [
     # top controls
     html.Div([
         html.H4("Filtrar por:"),

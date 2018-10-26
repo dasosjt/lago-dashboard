@@ -2,7 +2,8 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 from app import app
-from views.vem import vem_layout
+from views.sme import sme_layout
+from views.sav import sav_layout
 from views.gmmem import gmmem_layout
 
 app.layout = html.Div(
@@ -35,11 +36,11 @@ app.layout = html.Div(
                     id="tabs",
                     style={"height": "20", "verticalAlign": "middle"},
                     children=[
-                        dcc.Tab(label="VEM", value="vem_tab"),
+                        dcc.Tab(label="Media Móvil Simple", value="sme_tab"),
+                        dcc.Tab(label="Savitzky-Golay", value="sav_tab"),
                         dcc.Tab(label="GMM-EM", value="gmmem_tab"),
-                        dcc.Tab(label="ML", value="ml_tab"),
                     ],
-                    value="vem_tab",
+                    value="sme_tab",
                 )
             ],
             className="row tabs_div"
@@ -77,8 +78,10 @@ app.layout = html.Div(
 
 @app.callback(Output("tab_content", "children"), [Input("tabs", "value")])
 def render_content(tab):
-    if tab == "vem_tab":
-        return vem_layout
+    if tab == "sme_tab":
+        return sme_layout
+    if tab == "sav_tab":
+        return sav_layout
     elif tab == "gmmem_tab":
         return gmmem_layout
     return "Hello"
